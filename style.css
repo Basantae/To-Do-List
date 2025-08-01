@@ -1,0 +1,247 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+:root {
+  --app-bg: rgba(255, 255, 255, 0.9);
+  --accent-color: #f687b3;
+  --text-primary: #333;
+  --text-secondary: #666;
+  --input-bg: #f0f0f0;
+  --input-border: #ccc;
+  --button-bg: #f687b3;
+  --button-hover: #e76c9e;
+  --task-bg: #fff;
+  --task-hover: rgba(246, 135, 179, 0.1);
+  --border-color: #cf2323;
+  
+}
+body {
+  background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.6;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.todo-app {
+  width: 100%;
+  max-width: 600px;
+  background: var(--app-bg);
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 48px;
+  font-weight: 300;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.header h1::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: var(--accent-color);
+}
+
+.datetime {
+  font-size: 18px;
+  color: var(--text-primary);
+  font-weight: 300;
+  margin-top: 15px;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+#input-box {
+  flex: 1;
+  padding: 15px 20px;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 10px;
+  font-size: 16px;
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#input-box::placeholder {
+  color: var(--text-secondary);
+}
+
+#input-box:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 10px rgba(246, 135, 179, 0.2);
+}
+
+button {
+  padding: 15px 25px;
+  background: var(--button-bg);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  min-width: 80px;
+}
+
+button:hover {
+  background: var(--button-hover);
+  transform: translateY(-2px);
+}
+
+#list-container {
+  list-style: none;
+}
+
+#list-container li {
+  padding: 15px 20px;
+  background: var(--task-bg);
+  margin-bottom: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+#list-container li:hover {
+  background: var(--task-hover);
+  transform: translateX(5px);
+}
+
+#list-container li::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--accent-color);
+  margin-right: 15px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+#list-container li.checked {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+#list-container li.checked::before {
+  background: var(--accent-color);
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>');
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#list-container li span {
+  margin-left: auto;
+  color: #ff6b6b;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+#list-container li:hover span {
+  opacity: 1;
+}
+
+#list-container li span:hover {
+  background: #ff6b6b;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Empty state */
+#list-container:empty::after {
+  content: "No tasks yet. Start by adding one above! ✨";
+  display: block;
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+  padding: 40px 20px;
+  font-size: 16px;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .theme-selector {
+    top: 15px;
+    right: 15px;
+    gap: 10px;
+  }
+
+  .theme-option {
+    width: 20px;
+    height: 20px;
+  }
+
+  .todo-app {
+    padding: 25px 20px;
+    margin: 10px;
+  }
+
+  .header h1 {
+    font-size: 36px;
+  }
+
+  .datetime {
+    font-size: 16px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
