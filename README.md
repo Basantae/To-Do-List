@@ -1,7 +1,7 @@
 # 📝 Simple To-Do List
 
 A minimal to-do list web app built with HTML, CSS, and JavaScript. Features include task adding, deletion, and current date-time display. Styled with a clean, pinkish theme.
-
+https://basantae.github.io/To-Do-List/
 ---
 
 ## Features
