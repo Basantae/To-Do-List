@@ -22,4 +22,4 @@ A minimal to-do list web app built with HTML, CSS, and JavaScript. Features incl
 ---
 
 
-<img width="981" height="676" alt="image" src="https://github.com/user-attachments/assets/e3ca9054-25a7-45bb-b7e5-137591867882" />
+<img width="751" height="556" alt="image" src="https://github.com/user-attachments/assets/e3ca9054-25a7-45bb-b7e5-137591867882" />
